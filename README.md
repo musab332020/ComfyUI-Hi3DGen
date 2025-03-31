@@ -20,7 +20,7 @@ This extension integrates [Hi3DGen](https://github.com/Stable-X/Hi3DGen) into Co
 * Install the required dependencies by running `pip install -r requirements.txt`.
 
 ### From Source (Window)
-WIP, Available before 4.4
+WIP, Available before April 4th
 
 ## Notes
 
