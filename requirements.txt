@@ -1,0 +1,17 @@
+torch==2.4.0
+torchvision==0.19.0
+pillow
+imageio
+imageio-ffmpeg
+tqdm
+easydict
+opencv-python-headless
+scipy
+rembg
+ninja
+plyfile
+trimesh
+git+https://github.com/EasternJournalist/utils3d.git@9a4eb15e4021b67b12c460c7057d642626897ec8
+xformers
+triton
+spconv-cu124>=2.3.6

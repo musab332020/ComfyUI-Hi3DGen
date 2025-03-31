@@ -1,0 +1,432 @@
+{
+  "last_node_id": 86,
+  "last_link_id": 159,
+  "nodes": [
+    {
+      "id": 41,
+      "type": "Fast Groups Muter (rgthree)",
+      "pos": [
+        166.69932556152344,
+        85.45072937011719
+      ],
+      "size": [
+        228.58946228027344,
+        82
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "OPT_CONNECTION",
+          "type": "*",
+          "links": null
+        }
+      ],
+      "properties": {
+        "matchColors": "",
+        "matchTitle": "",
+        "showNav": true,
+        "sort": "position",
+        "customSortAlphabet": "",
+        "toggleRestriction": "default"
+      }
+    },
+    {
+      "id": 29,
+      "type": "VHS_LoadVideoPath",
+      "pos": [
+        1111.7589111328125,
+        174.0772247314453
+      ],
+      "size": [
+        301.58575439453125,
+        238
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "meta_batch",
+          "type": "VHS_BatchManager",
+          "link": null,
+          "shape": 7
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": null,
+          "shape": 7
+        },
+        {
+          "name": "video",
+          "type": "STRING",
+          "link": 158,
+          "widget": {
+            "name": "video"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": null
+        },
+        {
+          "name": "frame_count",
+          "type": "INT",
+          "links": null
+        },
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "links": null
+        },
+        {
+          "name": "video_info",
+          "type": "VHS_VIDEOINFO",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VHS_LoadVideoPath"
+      },
+      "widgets_values": {
+        "video": "",
+        "force_rate": 0,
+        "force_size": "Disabled",
+        "custom_width": 512,
+        "custom_height": 512,
+        "frame_load_cap": 0,
+        "skip_first_frames": 0,
+        "select_every_nth": 1,
+        "videopreview": {
+          "hidden": false,
+          "paused": false,
+          "params": {
+            "force_rate": 0,
+            "frame_load_cap": 0,
+            "skip_first_frames": 0,
+            "select_every_nth": 1
+          },
+          "muted": false
+        }
+      }
+    },
+    {
+      "id": 67,
+      "type": "LoadImage",
+      "pos": [
+        73.91824340820312,
+        251.61166381835938
+      ],
+      "size": [
+        315,
+        314
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            156
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "typical_humanoid_dwarf.png",
+        "image"
+      ]
+    },
+    {
+      "id": 75,
+      "type": "Preview3D",
+      "pos": [
+        777.0511474609375,
+        169.1263427734375
+      ],
+      "size": [
+        315,
+        550
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model_file",
+          "type": "STRING",
+          "link": 157,
+          "widget": {
+            "name": "model_file"
+          }
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "Preview3D"
+      },
+      "widgets_values": [
+        "",
+        true,
+        "perspective",
+        "front",
+        "normal",
+        "#5a5a5a",
+        10,
+        "original"
+      ]
+    },
+    {
+      "id": 84,
+      "type": "IF_TrellisImageTo3D",
+      "pos": [
+        425.3531188964844,
+        412.25830078125
+      ],
+      "size": [
+        340.20001220703125,
+        506
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "TRELLIS_MODEL",
+          "link": 159
+        },
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 156
+        },
+        {
+          "name": "masks",
+          "type": "MASK",
+          "link": null,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "model_file",
+          "type": "STRING",
+          "links": [
+            157
+          ]
+        },
+        {
+          "name": "video_path",
+          "type": "STRING",
+          "links": [
+            158
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "IF_TrellisImageTo3D"
+      },
+      "widgets_values": [
+        "single",
+        186155079,
+        "randomize",
+        7.5,
+        12,
+        3,
+        12,
+        0.95,
+        1024,
+        "fast",
+        15,
+        "stochastic",
+        "locksmith_dwarf",
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "id": 86,
+      "type": "IF_TrellisCheckpointLoader",
+      "pos": [
+        439.31207275390625,
+        166.77774047851562
+      ],
+      "size": [
+        315,
+        202
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "model",
+          "type": "TRELLIS_MODEL",
+          "links": [
+            159
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "IF_TrellisCheckpointLoader"
+      },
+      "widgets_values": [
+        "TRELLIS-image-large",
+        "dinov2_vitg14",
+        true,
+        "sage",
+        true,
+        "implicit_gemm",
+        "cuda"
+      ]
+    },
+    {
+      "id": 85,
+      "type": "Load3D",
+      "pos": [
+        1458.815185546875,
+        251.48486328125
+      ],
+      "size": [
+        315,
+        600
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": null
+        },
+        {
+          "name": "mask",
+          "type": "MASK",
+          "links": null
+        },
+        {
+          "name": "mesh_path",
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Camera Info": "",
+        "Node name for S&R": "Load3D"
+      },
+      "widgets_values": [
+        "3d/locksmith_dwarf.glb",
+        "upload3dmodel",
+        "clear",
+        null,
+        1024,
+        1024,
+        true,
+        "perspective",
+        "front",
+        "original",
+        "#000000",
+        10,
+        "original"
+      ]
+    }
+  ],
+  "links": [
+    [
+      156,
+      67,
+      0,
+      84,
+      1,
+      "IMAGE"
+    ],
+    [
+      157,
+      84,
+      0,
+      75,
+      0,
+      "STRING"
+    ],
+    [
+      158,
+      84,
+      1,
+      29,
+      2,
+      "STRING"
+    ],
+    [
+      159,
+      86,
+      0,
+      84,
+      0,
+      "TRELLIS_MODEL"
+    ]
+  ],
+  "groups": [
+    {
+      "id": 1,
+      "title": "Trellis",
+      "bounding": [
+        415.3531188964844,
+        91.95551300048828,
+        1017.0406494140625,
+        874.5250854492188
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "id": 2,
+      "title": "Image",
+      "bounding": [
+        45.283302307128906,
+        180.22779846191406,
+        355.32086181640625,
+        402.4888610839844
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    }
+  ],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 1.4641000000000008,
+      "offset": [
+        86.43399655248945,
+        56.27609878490445
+      ]
+    },
+    "ue_links": []
+  },
+  "version": 0.4
+}

@@ -1,0 +1,40 @@
+[project]
+name = "comfyui-hi3dgen"
+description = "ComfyUI Hi3DGen creates a high-fiedlity 3d mesh from a single view or multi angle pictures"
+version = "0.2.5"
+license = { file = "MIT License" }
+dependencies = [
+    "pillow",
+    "imageio",
+    "imageio-ffmpeg",
+    "tqdm",
+    "easydict",
+    "opencv-python-headless",
+    "scipy",
+    "ninja",
+    "plyfile",
+    "rembg",
+    "onnxruntime-gpu",
+    "trimesh",
+    "git+https://github.com/EasternJournalist/utils3d.git@9a4eb15e4021b67b12c460c7057d642626897ec8",
+    "xformers",
+    "spconv-cu124",
+    "diffrp-nvdiffrast",
+
+    # triton for linux
+    'triton; sys_platform == "linux"',
+    # triton for windows
+    'https://github.com/woct0rdho/triton-windows/releases/download/v3.1.0-windows.post8/triton-3.1.0-cp312-cp312-win_amd64.whl; sys_platform == "win64" and (python_version >= "3.12" and python_version < "3.13")',
+    'https://github.com/woct0rdho/triton-windows/releases/download/v3.1.0-windows.post8/triton-3.1.0-cp311-cp311-win_amd64.whl; sys_platform == "win64" and (python_version >= "3.11" and python_version < "3.12")',
+    'https://github.com/woct0rdho/triton-windows/releases/download/v3.1.0-windows.post8/triton-3.1.0-cp310-cp310-win_amd64.whl; sys_platform == "win64" and (python_version >= "3.10" and python_version < "3.11")',
+    'https://github.com/woct0rdho/triton-windows/releases/download/v3.1.0-windows.post8/triton-3.1.0-cp38-cp38-win_amd64.whl; sys_platform == "win64" and (python_version >= "3.8" and python_version < "3.9")'
+]
+
+[project.urls]
+Repository = "https://github.com/Stable-X/ComfyUI-Hi3DGen"
+#  Used by Comfy Registry https://comfyregistry.org
+
+[tool.comfy]
+PublisherId = "impactframes"
+DisplayName = "IF_Hi3DGen"
+Icon = "https://impactframes.ai/System/Icons/48x48/if.png"
