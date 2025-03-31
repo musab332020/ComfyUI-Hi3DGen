@@ -14,3 +14,6 @@ git+https://github.com/EasternJournalist/utils3d.git@9a4eb15e4021b67b12c460c7057
 xformers==0.0.27.post2
 spconv-cu120==2.3.6
 transformers==4.46.3
+accelerate==1.5.2
+diffusers==0.32.2
+
