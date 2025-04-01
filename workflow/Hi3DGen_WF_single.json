@@ -1,210 +1,132 @@
 {
-  "last_node_id": 86,
-  "last_link_id": 159,
+  "id": "2ce13a2d-0e15-4260-b3b7-531ba96bf89e",
+  "revision": 0,
+  "last_node_id": 89,
+  "last_link_id": 163,
   "nodes": [
     {
-      "id": 41,
-      "type": "Fast Groups Muter (rgthree)",
-      "pos": [
-        166.69932556152344,
-        85.45072937011719
-      ],
-      "size": [
-        228.58946228027344,
-        82
-      ],
-      "flags": {},
+      "id": 87,
+      "type": "DownloadAndLoadStableXModel",
+      "pos": [-367.123107910156, 146.043090820313],
+      "size": [315, 58],
+      "flags": {
+
+      },
       "order": 0,
       "mode": 0,
       "inputs": [],
       "outputs": [
         {
-          "name": "OPT_CONNECTION",
-          "type": "*",
-          "links": null
+          "name": "pipeline",
+          "type": "YOSOPIPE",
+          "links": [160]
         }
       ],
       "properties": {
-        "matchColors": "",
-        "matchTitle": "",
-        "showNav": true,
-        "sort": "position",
-        "customSortAlphabet": "",
-        "toggleRestriction": "default"
-      }
+        "Node name for S&R": "DownloadAndLoadStableXModel"
+      },
+      "widgets_values": [
+        "yoso-normal-v1-8-1"
+      ]
     },
     {
-      "id": 29,
-      "type": "VHS_LoadVideoPath",
-      "pos": [
-        1111.7589111328125,
-        174.0772247314453
-      ],
-      "size": [
-        301.58575439453125,
-        238
-      ],
-      "flags": {},
-      "order": 6,
+      "id": 88,
+      "type": "StableXProcessImage",
+      "pos": [490, 180],
+      "size": [315, 150],
+      "flags": {
+
+      },
+      "order": 3,
       "mode": 0,
       "inputs": [
         {
-          "name": "meta_batch",
-          "type": "VHS_BatchManager",
-          "link": null,
-          "shape": 7
+          "name": "pipeline",
+          "type": "YOSOPIPE",
+          "link": 160
         },
         {
-          "name": "vae",
-          "type": "VAE",
-          "link": null,
-          "shape": 7
-        },
-        {
-          "name": "video",
-          "type": "STRING",
-          "link": 158,
-          "widget": {
-            "name": "video"
-          }
+          "name": "image",
+          "type": "IMAGE",
+          "link": 161
         }
       ],
       "outputs": [
         {
-          "name": "IMAGE",
+          "name": "image",
           "type": "IMAGE",
-          "links": null
-        },
-        {
-          "name": "frame_count",
-          "type": "INT",
-          "links": null
-        },
-        {
-          "name": "audio",
-          "type": "AUDIO",
-          "links": null
-        },
-        {
-          "name": "video_info",
-          "type": "VHS_VIDEOINFO",
-          "links": null
+          "links": [162, 163]
         }
       ],
       "properties": {
-        "Node name for S&R": "VHS_LoadVideoPath"
+        "Node name for S&R": "StableXProcessImage"
       },
-      "widgets_values": {
-        "video": "",
-        "force_rate": 0,
-        "force_size": "Disabled",
-        "custom_width": 512,
-        "custom_height": 512,
-        "frame_load_cap": 0,
-        "skip_first_frames": 0,
-        "select_every_nth": 1,
-        "videopreview": {
-          "hidden": false,
-          "paused": false,
-          "params": {
-            "force_rate": 0,
-            "frame_load_cap": 0,
-            "skip_first_frames": 0,
-            "select_every_nth": 1
-          },
-          "muted": false
-        }
-      }
+      "widgets_values": [2048, 1, 148262827792070, "randomize"
+      ]
     },
     {
-      "id": 67,
-      "type": "LoadImage",
-      "pos": [
-        73.91824340820312,
-        251.61166381835938
+      "id": 89,
+      "type": "PreviewImage",
+      "pos": [490, 480],
+      "size": [210, 246],
+      "flags": {
+
+      },
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 163
+        }
       ],
-      "size": [
-        315,
-        314
-      ],
-      "flags": {},
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": [
+        ""
+      ]
+    },
+    {
+      "id": 86,
+      "type": "IF_TrellisCheckpointLoader",
+      "pos": [-358.851715087891, -174.489013671875],
+      "size": [315, 202],
+      "flags": {
+
+      },
       "order": 1,
       "mode": 0,
       "inputs": [],
       "outputs": [
         {
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": [
-            156
-          ],
-          "slot_index": 0
-        },
-        {
-          "name": "MASK",
-          "type": "MASK",
-          "links": null
+          "name": "model",
+          "type": "TRELLIS_MODEL",
+          "links": [159]
         }
       ],
       "properties": {
-        "Node name for S&R": "LoadImage"
+        "Node name for S&R": "IF_TrellisCheckpointLoader"
       },
       "widgets_values": [
-        "typical_humanoid_dwarf.png",
-        "image"
-      ]
-    },
-    {
-      "id": 75,
-      "type": "Preview3D",
-      "pos": [
-        777.0511474609375,
-        169.1263427734375
-      ],
-      "size": [
-        315,
-        550
-      ],
-      "flags": {},
-      "order": 5,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "model_file",
-          "type": "STRING",
-          "link": 157,
-          "widget": {
-            "name": "model_file"
-          }
-        }
-      ],
-      "outputs": [],
-      "properties": {
-        "Node name for S&R": "Preview3D"
-      },
-      "widgets_values": [
-        "",
-        true,
-        "perspective",
-        "front",
-        "normal",
-        "#5a5a5a",
-        10,
-        "original"
+        "trellis-normal-v0-1",
+        "dinov2_vitl14_reg",
+        true, "xformers",
+        "spconv",
+        "implicit_gemm",
+        "cuda"
       ]
     },
     {
       "id": 84,
       "type": "IF_TrellisImageTo3D",
-      "pos": [
-        425.3531188964844,
-        412.25830078125
-      ],
-      "size": [
-        340.20001220703125,
-        506
-      ],
-      "flags": {},
+      "pos": [860.648742675781, 208.74560546875],
+      "size": [340.200012207031, 506],
+      "flags": {
+
+      },
       "order": 4,
       "mode": 0,
       "inputs": [
@@ -216,29 +138,30 @@
         {
           "name": "images",
           "type": "IMAGE",
-          "link": 156
+          "link": 162
         },
         {
           "name": "masks",
+          "shape": 7,
           "type": "MASK",
-          "link": null,
-          "shape": 7
+          "link": null
         }
       ],
       "outputs": [
         {
           "name": "model_file",
           "type": "STRING",
-          "links": [
-            157
-          ]
+          "links": [157]
         },
         {
           "name": "video_path",
           "type": "STRING",
-          "links": [
-            158
-          ]
+          "links": []
+        },
+        {
+          "name": "texture_image",
+          "type": "IMAGE",
+          "links": null
         }
       ],
       "properties": {
@@ -246,187 +169,150 @@
       },
       "widgets_values": [
         "single",
-        186155079,
-        "randomize",
-        7.5,
-        12,
-        3,
-        12,
-        0.95,
-        1024,
-        "fast",
-        15,
-        "stochastic",
-        "locksmith_dwarf",
-        true,
-        true,
-        true,
-        true,
-        true
+        240919286, "randomize",
+        7.5, 12, 3, 12, 0.95, "stochastic",
+        "test"
       ]
     },
     {
-      "id": 86,
-      "type": "IF_TrellisCheckpointLoader",
-      "pos": [
-        439.31207275390625,
-        166.77774047851562
+      "id": 75,
+      "type": "Preview3D",
+      "pos": [1249.12377929688, 220.59049987793],
+      "size": [315, 550],
+      "flags": {
+
+      },
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model_file",
+          "type": "STRING",
+          "widget": {
+            "name": "model_file"
+          },
+          "link": 157
+        }
       ],
-      "size": [
-        315,
-        202
-      ],
-      "flags": {},
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "Preview3D",
+        "Camera Info": {
+          "position": {
+            "x": 9.19323855253915,
+            "y": 2.91023369098772,
+            "z": -1.400979112753
+          },
+          "target": {
+            "x": 0,
+            "y": 1.61671303147776,
+            "z": 0
+          },
+          "zoom": 1,
+          "cameraType": "perspective"
+        }
+      },
+      "widgets_values": [
+        "test/test.glb",
+        ""
+      ]
+    },
+    {
+      "id": 67,
+      "type": "LoadImage",
+      "pos": [-368.674621582031, 330.965423583984],
+      "size": [315, 314],
+      "flags": {
+
+      },
       "order": 2,
       "mode": 0,
       "inputs": [],
       "outputs": [
         {
-          "name": "model",
-          "type": "TRELLIS_MODEL",
-          "links": [
-            159
-          ]
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "IF_TrellisCheckpointLoader"
-      },
-      "widgets_values": [
-        "TRELLIS-image-large",
-        "dinov2_vitg14",
-        true,
-        "sage",
-        true,
-        "implicit_gemm",
-        "cuda"
-      ]
-    },
-    {
-      "id": 85,
-      "type": "Load3D",
-      "pos": [
-        1458.815185546875,
-        251.48486328125
-      ],
-      "size": [
-        315,
-        600
-      ],
-      "flags": {},
-      "order": 3,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "image",
+          "name": "IMAGE",
           "type": "IMAGE",
-          "links": null
+          "slot_index": 0,
+          "links": [161]
         },
         {
-          "name": "mask",
+          "name": "MASK",
           "type": "MASK",
           "links": null
-        },
-        {
-          "name": "mesh_path",
-          "type": "STRING",
-          "links": null
         }
       ],
       "properties": {
-        "Camera Info": "",
-        "Node name for S&R": "Load3D"
+        "Node name for S&R": "LoadImage"
       },
       "widgets_values": [
-        "3d/locksmith_dwarf.glb",
-        "upload3dmodel",
-        "clear",
-        null,
-        1024,
-        1024,
-        true,
-        "perspective",
-        "front",
-        "original",
-        "#000000",
-        10,
-        "original"
+        "Generated Image March 31, 2025 - 3_19PM.jpeg",
+        "image",
+        ""
       ]
     }
   ],
   "links": [
-    [
-      156,
-      67,
-      0,
-      84,
-      1,
-      "IMAGE"
+    [157, 84, 0, 75, 0, "STRING"
     ],
-    [
-      157,
-      84,
-      0,
-      75,
-      0,
-      "STRING"
+    [159, 86, 0, 84, 0, "TRELLIS_MODEL"
     ],
-    [
-      158,
-      84,
-      1,
-      29,
-      2,
-      "STRING"
+    [160, 87, 0, 88, 0, "YOSOPIPE"
     ],
-    [
-      159,
-      86,
-      0,
-      84,
-      0,
-      "TRELLIS_MODEL"
+    [161, 67, 0, 88, 1, "IMAGE"
+    ],
+    [162, 88, 0, 84, 1, "IMAGE"
+    ],
+    [163, 88, 0, 89, 0, "IMAGE"
     ]
   ],
   "groups": [
     {
       "id": 1,
-      "title": "Trellis",
-      "bounding": [
-        415.3531188964844,
-        91.95551300048828,
-        1017.0406494140625,
-        874.5250854492188
-      ],
+      "title": "Hi3DGen",
+      "bounding": [450, 90, 1017.04064941406, 874.525085449219],
       "color": "#3f789e",
       "font_size": 24,
-      "flags": {}
+      "flags": {
+
+      }
     },
     {
       "id": 2,
       "title": "Image",
-      "bounding": [
-        45.283302307128906,
-        180.22779846191406,
-        355.32086181640625,
-        402.4888610839844
-      ],
+      "bounding": [-396.156677246094, 258.446929931641, 355.320861816406, 402.488861083984],
       "color": "#3f789e",
       "font_size": 24,
-      "flags": {}
+      "flags": {
+
+      }
     }
   ],
-  "config": {},
+  "config": {
+
+  },
   "extra": {
     "ds": {
-      "scale": 1.4641000000000008,
-      "offset": [
-        86.43399655248945,
-        56.27609878490445
-      ]
+      "scale": 0.640376065342708,
+      "offset": [1194.09386904219, 251.478399306866]
     },
-    "ue_links": []
+    "ue_links": [],
+    "reroutes": [
+      {
+        "id": 1,
+        "pos": [248.001159667969, 386.019378662109],
+        "linkIds": [159]
+      }
+    ],
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0,
+    "VHS_MetadataImage": true,
+    "VHS_KeepIntermediate": true,
+    "linkExtensions": [
+      {
+        "id": 159,
+        "parentId": 1
+      }
+    ]
   },
   "version": 0.4
 }
