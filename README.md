@@ -11,6 +11,7 @@ This extension integrates [Hi3DGen](https://github.com/Stable-X/Hi3DGen) into Co
 ![comfyui_t2mv](assets/teaser.png)
 
 ## 🔥 Feature Updates
+* [2024-04-02] Support window installation
 * [2024-03-31] Support single-view image to 3D goemetry generation
 
 ## Installation
