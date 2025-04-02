@@ -20,7 +20,8 @@ This extension integrates [Hi3DGen](https://github.com/Stable-X/Hi3DGen) into Co
 * Install the required dependencies by running `pip install -r linux_requirements.txt`.
 
 ### From Source (Window)
-WIP, Available before April 4th
+* Clone or download this repository into your `ComfyUI/custom_nodes/` directory.
+* Install the required dependencies by running `pip install -r win_requirements.txt`.
 
 ## Notes
 
